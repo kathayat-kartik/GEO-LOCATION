@@ -1,0 +1,286 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: #e0e0e0;
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Navigation Bar - Same as Home Page */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 3px solid rgba(99, 102, 241, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.logo-icon {
+    font-size: 30px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #f8fafc;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 100px;
+    padding: 40px 0 60px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 56px;
+    font-weight: 700;
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 22px;
+    color: #fff6f6;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.content-section {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 50px 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+}
+
+.section-text {
+    font-size: 18px;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.9;
+}
+
+.highlight {
+    color: #b0b0b0;
+}
+
+.conclusion {
+    margin-top: 30px;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 25px 0;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.feature-text {
+    font-size: 17px;
+    color: #b0b0b0;
+    line-height: 1.8;
+}
+
+/* Goal Cards */
+.goal-card {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin: 20px 0;
+    border-left: 4px solid #667eea;
+    position: relative;
+}
+
+.goal-text {
+    font-size: 17px;
+    color: #d0d0d0;
+    line-height: 1.8;
+}
+
+/* Footer */
+.footer {
+    background: rgba(15, 23, 42, 0.8);
+    padding: 32px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.footer p {
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* Fade In Animation */
+.fade-in {
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-container {
+        padding: 16px;
+    }
+
+    .page-title {
+        font-size: 38px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .content-section {
+        padding: 35px 25px;
+    }
+
+    .feature-card,
+    .goal-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo-icon {
+        font-size: 24px;
+    }
+
+    .page-title {
+        font-size: 32px;
+    }
+
+    .section-text {
+        font-size: 16px;
+    }
+}

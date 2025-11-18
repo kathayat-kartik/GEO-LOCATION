@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ZoneLock</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔒</span>
+                <span class="logo-text">ZoneLock</span>
+            </div>
+            <ul class="nav-links">
+               <li><a href="home.html">Home</a></li>
+               <li><a href="about.html">About</a></li>
+               <li><a href="map.html">Map</a></li>
+               <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section fade-in">
+                <h1 class="page-title">About ZoneLock</h1>
+                <p class="subtitle">The Future of Location-Based Security</p>
+            </section>
+
+            <!-- What is ZoneLock Section -->
+            <section class="content-section fade-in">
+                <h2 class="section-title">What is ZoneLock?</h2>
+                <div class="divider"></div>
+                <p class="section-text">
+                    ZoneLock is a next-generation security system that merges encryption technology with real-time geolocation to redefine data protection. Unlike traditional systems that depend only on passwords or static keys, ZoneLock adds an intelligent location-based layer — meaning your data can only be decrypted from a specific physical area.
+                </p>
+                <p class="section-text">
+                    Even if someone steals your encrypted file or password, they can't unlock it unless they are physically present within the allowed zone.
+                </p>
+            </section>
+
+            <!-- The Idea Behind ZoneLock Section -->
+            <section class="content-section fade-in">
+                <h2 class="section-title">The Idea Behind ZoneLock</h2>
+                <div class="divider"></div>
+                <p class="section-text">
+                    In today's digital era, data is constantly shared, transferred, and stored across multiple devices and platforms — increasing the risk of unauthorized access. Many individuals and organizations need their sensitive information to remain accessible only within a certain place — such as a workplace, campus, or secure facility.
+                </p>
+                <p class="section-text">
+                    ZoneLock was built to meet that need. By combining AES (Advanced Encryption Standard) with the HTML5 Geolocation API, ZoneLock ensures that your data's safety isn't just based on who you are, but where you are.
+                </p>
+            </section>
+
+            <!-- How ZoneLock Works Section -->
+            <section class="content-section fade-in">
+                <h2 class="section-title">How ZoneLock Works</h2>
+                <div class="divider"></div>
+                <p class="section-text">
+                    ZoneLock functions through a seamless combination of front-end encryption and location verification:
+                </p>
+                
+                <div class="feature-card">
+                    <h3 class="feature-title">Encryption Based on Location:</h3>
+                    <p class="feature-text">
+                        When a user encrypts a message, ZoneLock records the device's latitude and longitude coordinates. These coordinates are mathematically integrated into the encryption key, making the ciphertext unique to that location.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">Secure Local Storage:</h3>
+                    <p class="feature-text">
+                        The encrypted message is automatically downloaded as a .encrypted file, ensuring it remains with the user and never leaves the browser.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">Decryption Within the Zone:</h3>
+                    <p class="feature-text">
+                        When attempting to decrypt, ZoneLock checks the user's current location. If it matches the original location within a set radius (e.g., 30 meters), the decryption key is validated and the message is revealed. If not — decryption fails.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">Privacy by Design:</h3>
+                    <p class="feature-text">
+                        All encryption and decryption occur locally in the browser using JavaScript — no data is uploaded or stored on any external server.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Why ZoneLock Matters Section -->
+            <section class="content-section fade-in">
+                <h2 class="section-title">Why ZoneLock Matters</h2>
+                <div class="divider"></div>
+                <p class="section-text">
+                    ZoneLock introduces a new dimension to digital security — context-aware protection.
+                </p>
+                <p class="section-text highlight">
+                    Businesses can ensure sensitive data stays within office premises.
+                </p>
+                <p class="section-text highlight">
+                    Students or researchers can keep projects accessible only from specific labs.
+                </p>
+                <p class="section-text highlight">
+                    Individuals can lock personal notes or memories to private spaces.
+                </p>
+                <p class="section-text">
+                    This fusion of cryptography and geofencing represents a significant step toward adaptive, environment-sensitive security.
+                </p>
+            </section>
+
+            <!-- Future Goals Section -->
+            <section class="content-section fade-in">
+                <h2 class="section-title">Future Goals</h2>
+                <div class="divider"></div>
+                <p class="section-text">
+                    ZoneLock's long-term vision is to evolve into a fully adaptive security framework. Upcoming goals include:
+                </p>
+                
+                <div class="goal-card">
+                    <p class="goal-text">
+                        Expanding beyond browsers to integrate with mobile and IoT devices, enabling real-world use in smart environments.
+                    </p>
+                </div>
+
+                <div class="goal-card">
+                    <p class="goal-text">
+                        Adding multi-user key sharing so encrypted messages can be securely unlocked by authorized recipients within the zone.
+                    </p>
+                </div>
+
+                <div class="goal-card">
+                    <p class="goal-text">
+                        Building server-side APIs for enterprise integration, allowing companies to apply location-based authentication to their systems.
+                    </p>
+                </div>
+
+                <div class="goal-card">
+                    <p class="goal-text">
+                        Introducing time-based encryption, where data can only be accessed within both a specific place and time window.
+                    </p>
+                </div>
+
+                <p class="section-text conclusion">
+                    ZoneLock aims to make location-aware encryption a global standard — ensuring that your digital security always moves with you.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ZoneLock.</p>
+    </footer>
+</body>
+</html>

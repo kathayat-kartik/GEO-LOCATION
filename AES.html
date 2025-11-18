@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location-Based Encryption</title>
+    <link rel="stylesheet" href="AES.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 ZoneLock</h1>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="switchTab('encrypt')">Encrypt</button>
+            <button class="tab-btn" onclick="switchTab('decrypt')">Decrypt</button>
+        </div>
+
+        <!-- Encrypt Tab -->
+        <div id="encrypt-tab" class="tab-content active">
+            <div class="location-info">
+                <strong>📍 Your Location:</strong> <span id="encrypt-location">Getting location...</span>
+            </div>
+
+            <div class="input-group">
+                <label>Message to Encrypt:</label>
+                <textarea id="encrypt-message" placeholder="Enter your secret message..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Or Upload File:</label>
+                <label for="encrypt-file-input" class="file-input-label">Choose File</label>
+                <input type="file" id="encrypt-file-input" accept=".txt,.pdf,.doc,.docx">
+                <div class="file-name" id="encrypt-file-name"></div>
+            </div>
+
+            <div class="input-group">
+                <label>Password (AES-128 Key):</label>
+                <input type="password" id="encrypt-password" placeholder="Enter encryption password">
+            </div>
+
+            <button onclick="encryptData()">🔒 Encrypt & Download</button>
+            <div id="encrypt-status" class="status"></div>
+        </div>
+
+        <!-- Decrypt Tab -->
+        <div id="decrypt-tab" class="tab-content">
+            <div class="location-info">
+                <strong>📍 Your Location:</strong> <span id="decrypt-location">Getting location...</span>
+            </div>
+
+            <div class="input-group">
+                <label>Upload Encrypted File:</label>
+                <label for="decrypt-file-input" class="file-input-label">Choose Encrypted File</label>
+                <input type="file" id="decrypt-file-input" accept=".encrypted">
+                <div class="file-name" id="decrypt-file-name"></div>
+            </div>
+
+            <div class="input-group">
+                <label>Password:</label>
+                <input type="password" id="decrypt-password" placeholder="Enter decryption password">
+            </div>
+
+            <button onclick="decryptData()">🔓 Decrypt</button>
+            <div id="decrypt-status" class="status"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="AES.js"></script>
+</body>
+</html>

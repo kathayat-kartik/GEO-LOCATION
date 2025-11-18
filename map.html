@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZoneLock - Explore Locations</title>
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔒</span>
+                <span class="logo-text">ZoneLock</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="map-page">
+        <!-- Animated Background -->
+        <div class="page-background"></div>
+
+        <!-- Page Title Section -->
+        <section class="page-header">
+            <h1 class="page-title">Locate Me</h1>
+            <p class="page-subtitle">Discover your position in real-time</p>
+        </section>
+
+        <!-- Map Container -->
+        <section class="map-section">
+            <div class="map-container">
+                <!-- Interactive Map will be rendered here -->
+                <div id="map" class="map"></div>
+                
+                <!-- Animated Pulse Marker Overlay -->
+                <div class="map-overlay">
+                    <div class="location-pulse">
+                        <div class="pulse-dot"></div>
+                        <div class="pulse-ring"></div>
+                        <div class="pulse-ring pulse-ring-delay"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Find My Location Button -->
+            <div class="map-controls">
+                <button class="locate-btn" id="locateBtn">
+                    <span class="btn-icon">📍</span>
+                    <span class="btn-text">Find My Location</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Floating Info Panel -->
+        <aside class="info-panel">
+            <div class="panel-header">
+                <span class="panel-icon">📍</span>
+                <h3>Your Location</h3>
+            </div>
+            <div class="panel-content">
+                <div class="info-item">
+                    <span class="info-label">Latitude:</span>
+                    <span class="info-value" id="latitude">--</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Longitude:</span>
+                    <span class="info-value" id="longitude">--</span>
+                </div>
+                <div class="info-status">
+                    <div class="status-indicator"></div>
+                    <span>Location services active</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer - Consistent with homepage -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 ZoneLock.</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for Interactive Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Map Functionality Script -->
+    <script>
+        // Initialize map centered on a default location
+        const map = L.map('map').setView([29.404187, 79.459127], 12); // Default: Nainital,UK
+        
+        // Add OpenStreetMap tile layer with light theme
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 19
+        }).addTo(map);
+        
+        let userMarker = null;
+        
+        // Find My Location button functionality
+        document.getElementById('locateBtn').addEventListener('click', function() {
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const lat = position.coords.latitude;
+                        const lng = position.coords.longitude;
+                        
+                        // Update info panel
+                        document.getElementById('latitude').textContent = lat.toFixed(6);
+                        document.getElementById('longitude').textContent = lng.toFixed(6);
+                        
+                        // Center map on user location
+                        map.setView([lat, lng], 15);
+                        
+                        // Remove old marker if exists
+                        if (userMarker) {
+                            map.removeLayer(userMarker);
+                        }
+                        
+                        // Add custom marker
+                        const customIcon = L.divIcon({
+                            className: 'custom-marker',
+                            html: '<div class="marker-pin"></div>',
+                            iconSize: [30, 30]
+                        });
+                        
+                        userMarker = L.marker([lat, lng], { icon: customIcon }).addTo(map);                    
+                    },
+                    function(error) {
+                        alert('Unable to retrieve your location: ' + error.message);
+                        document.getElementById('locateBtn').classList.remove('loading');
+                        document.getElementById('locateBtn').innerHTML = 
+                            '<span class="btn-icon">📍</span><span class="btn-text">Find My Location</span>';
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by your browser');
+            }
+        });
+    </script>
+</body>
+</html>
